@@ -28,6 +28,7 @@
       <a href="#product">Products</a>
       <a href="#review">Review</a>
       <a href="#contact">Contact</a>
+      
     </nav>
   
     <div class="icons">
@@ -630,7 +631,26 @@
           <a href="#">+91 9044158093,+91 6387411812</a>
           <a href="#">flowervilla383@gmail.com</a>
           <a href="#">Lucknow, India - 226005 </a>
-          
+          <p>Unique Visitors: <span id="uniqueCount">0</span></p>
+
+    <script>
+        // Get stored unique visitor count
+        let uniqueViews = localStorage.getItem("uniqueProfileViews");
+
+        if (!uniqueViews) {
+            uniqueViews = 0;
+        }
+
+        // Check if the user has already visited
+        if (!sessionStorage.getItem("visited")) {
+            sessionStorage.setItem("visited", "true"); // Mark user session as visited
+            uniqueViews++; // Increment unique views
+            localStorage.setItem("uniqueProfileViews", uniqueViews); // Store updated count
+        }
+
+        // Display unique visitor count
+        document.getElementById("uniqueCount").textContent = uniqueViews;
+    </script> 
         </div>
     </div>
 
